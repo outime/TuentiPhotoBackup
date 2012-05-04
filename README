@@ -1,0 +1,14 @@
+TuentiPhotoBackup
+=================
+
+TuentiPhotoBackup es un pequeño script que hice para uso personal al querer guardar todas las fotos de mi cuenta de Tuenti antes de cerrarla. 
+
+Dada la política tan cerrada de esta red social, es imposible exportar datos fuera de ninguna manera fácil, así que hice esto en un momento, por lo que pido disculpas de antemano por el spaghetti que te encontrarás.
+
+El uso es muy sencillo: usuario, contraseña, y las fotos se bajarán en el directorio 'downloads/<email_cuenta>'.
+
+Siéntete libre de hacer un fork y ampliarlo o mejorar las funciones presentes, ya que no está demasiado cuidado (no tenía pensado liberarlo), pero una vez hecha la base, no debería suponer problemas ampliarlo a backups de tablón, mensajes, etc...
+
+El script corre en prácticamente cualquier servidor web con soporte PHP. Asegúrate de que el directorio 'downloads' tiene los permisos adecuados, y de que tu proveedor permite peticiones ciertamente 'masivas' (depende del número de fotos) mediante cURL.
+
+DISCLAIMER: No me hago responsable del uso de esta herramienta. Si Tuenti te cierra la cuenta por usar herramientas no autorizadas, no es mi problema. Si no te funciona, no la voy a arreglar. Se aceptan parches.
