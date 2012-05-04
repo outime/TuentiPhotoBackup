@@ -27,7 +27,8 @@ function recuperar() {
 	}
 	else
 	{
-	  $('#estado').append('<dd><span class="label label-success">OK</span></dd>');
+	  $('#estado').append('<dd><span class="label label-important">NOPE</span></dd>');
+	  $('#recuperar').removeAttr('disabled');
 	}
   })
 }
