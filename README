@@ -11,4 +11,6 @@ Siéntete libre de hacer un fork y ampliarlo o mejorar las funciones presentes, y
 
 El script corre en prácticamente cualquier servidor web con soporte PHP. Asegúrate de que el directorio 'downloads' tiene los permisos adecuados, y de que tu proveedor permite peticiones ciertamente 'masivas' (depende del número de fotos) mediante cURL.
 
+Además, debes asegurarte también de que tu cuenta utiliza el inglés como idioma de Tuenti, o no funcionará correctamente (aunque esto, también, es fácilmente parcheable).
+
 DISCLAIMER: No me hago responsable del uso de esta herramienta. Si Tuenti te cierra la cuenta por usar herramientas no autorizadas, no es mi problema. Si no te funciona, no la voy a arreglar. Se aceptan parches.
