@@ -1,16 +1,22 @@
 TuentiPhotoBackup
 =================
 
-TuentiPhotoBackup es un pequeÒo script que hice para uso personal al querer guardar todas las fotos de mi cuenta de Tuenti antes de cerrarla. 
+TuentiPhotoBackup es un peque√±o script que hice para uso personal al querer guardar todas las fotos de mi cuenta de Tuenti antes de cerrarla. 
 
-Dada la polÌtica tan cerrada de esta red social, es imposible exportar datos fuera de ninguna manera f·cil, asÌ que hice esto en un momento, por lo que pido disculpas de antemano por el spaghetti que te encontrar·s.
+Dada la pol√≠tica tan cerrada de esta red social, es imposible exportar datos fuera de ninguna manera f√°cil, as√≠ que hice esto en un momento, por lo que pido disculpas de antemano por el spaghetti que te encontrar√°s.
 
-El uso es muy sencillo: usuario, contraseÒa, y las fotos se bajar·n en el directorio 'downloads/<email_cuenta>'.
+El uso es muy sencillo: usuario, contrase√±a, y las fotos se bajar√°n en el directorio 'downloads/<email_cuenta>'.
 
-SiÈntete libre de hacer un fork y ampliarlo o mejorar las funciones presentes, ya que no est· demasiado cuidado (no tenÌa pensado liberarlo), pero una vez hecha la base, no deberÌa suponer problemas ampliarlo a backups de tablÛn, mensajes, etc...
+Si√©ntete libre de hacer un fork y ampliarlo o mejorar las funciones presentes, ya que no est√° demasiado cuidado (no ten√≠a pensado liberarlo), pero una vez hecha la base, no deber√≠a suponer problemas ampliarlo a backups de tabl√≥n, mensajes, etc...
 
-El script corre en pr·cticamente cualquier servidor web con soporte PHP. Aseg˙rate de que el directorio 'downloads' tiene los permisos adecuados, y de que tu proveedor permite peticiones ciertamente 'masivas' (depende del n˙mero de fotos) mediante cURL.
+El script corre en pr√°cticamente cualquier servidor web con soporte PHP. Aseg√∫rate de que el directorio 'downloads' tiene los permisos adecuados, y de que tu proveedor permite peticiones ciertamente 'masivas' (depende del n√∫mero de fotos) mediante cURL.
 
-Adem·s, debes asegurarte tambiÈn de que tu cuenta utiliza el inglÈs como idioma de Tuenti, o no funcionar· correctamente (aunque esto, tambiÈn, es f·cilmente parcheable).
+Adem√°s, debes asegurarte tambi√©n de que tu cuenta utiliza el ingl√©s como idioma de Tuenti, o no funcionar√° correctamente (aunque esto, tambi√©n, es f√°cilmente parcheable).
 
-DISCLAIMER: No me hago responsable del uso de esta herramienta. Si Tuenti te cierra la cuenta por usar herramientas no autorizadas, no es mi problema. Si no te funciona, no la voy a arreglar. Se aceptan parches.
+Resumen de requisitos:
+
+- Servidor web con soporte PHP y librer√≠a cURL
+- Cuenta de Tuenti en ingl√©s con web m√≥vil (m.tuenti.com) habilitada
+- Permisos adecuados en la carpeta 'downloads'
+
+DISCLAIMER: No me hago responsable del uso de esta herramienta. Si Tuenti te cierra la cuenta por usar herramientas no autorizadas, no es mi problema. Se aceptan parches que arreglen o ampl√≠en funcionalidades, as√≠ que ya sabes... :-)
