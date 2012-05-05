@@ -19,6 +19,19 @@ Resumen de requisitos:
 - Cuenta de Tuenti en inglés con web móvil (m.tuenti.com) habilitada
 - Permisos adecuados en la carpeta 'downloads'
 
+Testeado en diez cuentas diferentes con gran volumen de fotos, con éxito. Aún así, problemas más frecuentes:
+
+- Siempre me da error al intentar hacer backup. Y he probado con varias cuentas.
++ Si cumples los requisitos expuestos arriba, no debería existir ningún problema. Si lo hay, lo más probable es que sea problema de tu proveedor (restricción de dominio, máximo de peticiones cURL, ...). No obstante, siempre puedes comentarlo aquí: https://github.com/outime/TuentiPhotoBackup/issues
+- Me ha descargado N fotos y se para ahí.
++ Si tu cuenta tiene un buen volumen de fotos, el script tardará un rato largo en bajarlas. Si tu hosting está configurado para parar scripts que tardan más de X segundos en ejecutarse, nunca terminará de descargarlas. Habla con tu proveedor sobre la directiva 'max_execution_time'.
+- No sé ni cómo poner a funcionar esto.
++ No deberías utilizarlo entonces.
+
 DISCLAIMER: No me hago responsable del uso de esta herramienta. Si Tuenti te cierra la cuenta por usar herramientas no autorizadas, no es mi problema. Se aceptan parches que arreglen o amplíen funcionalidades, así que ya sabes... :-)
 
 Demo: http://www.youtube.com/watch?v=QrWlKAdk8aU
+
+Rubén Díaz 
+outime@gmail.com
+http://twitter.com/outime
