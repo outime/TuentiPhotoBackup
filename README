@@ -17,7 +17,7 @@ Resumen de requisitos:
 
 - Servidor web con soporte PHP y librería cURL
 - Cuenta de Tuenti en inglés con web móvil (m.tuenti.com) habilitada
-- Permisos adecuados en la carpeta 'downloads'
+- Permisos de escritura en la carpeta 'downloads' y el archivo 'status.php'
 
 Testeado en diez cuentas diferentes con gran volumen de fotos, con éxito. Aún así, problemas más frecuentes:
 
