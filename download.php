@@ -24,7 +24,7 @@ function launch_curl($uri, $post = false, $galleta = false)
 {
 	$ch = curl_init($uri);
 	curl_setopt( $ch, CURLOPT_HEADER, true );
-	curl_setopt( $ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:9.0) Gecko/20100101 Firefox/9.0" );
+	curl_setopt( $ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:12.0) Gecko/20100101 Firefox/12.0" );
 	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 	if ($post)
 	{
@@ -43,15 +43,15 @@ if ($step == 1) // identificación
 	$status = array();
 	
 	// 1. Cogemos csfr y cookie inicial
-	$content = launch_curl('http://m.tuenti.com/?m=login');
+	$content = launch_curl('http://m.tuenti.com/?m=Login');
 	
 	preg_match_all( '#Set-Cookie:(.*?);#', $content, $galleta );
 	$galleta = trim(implode(';',$galleta[1])); // pid(alfanumerico); cookiename=1
-	$csfr = get_string_between($content, 'csfr" value="', '"/>'); // alfanum (depende de pid)
+	$csfr = get_string_between($content, 'name="csrf" value="', '"/>'); // alfanum (depende de pid)
 	
 	// 2. Nos logueamos
-	$postargs = 'csfr='.$csfr.'&tuentiemail='.urlencode($email).'&password='.urlencode($password).'&remember=1';
-	$content = launch_curl('http://m.tuenti.com/?m=login&func=process_login', $postargs, $galleta);
+	$postargs = 'csrf='.$csfr.'&tuentiemailaddress='.urlencode($email).'&password='.urlencode($password).'&remember=1';
+	$content = launch_curl('http://m.tuenti.com/?m=Login&f=process_login', $postargs, $galleta.'; cookiename=1');
 	
 	preg_match_all( '#Set-Cookie:(.*?);#', $content, $galleta );
 	$galleta = trim(implode(';',$galleta[1]));
