@@ -76,9 +76,10 @@ if ($step == 2) // recogida de fotos
 	
 	// 1. Propio perfil para obtener url de fotos etiquetadas
 	$content = launch_curl('http://m.tuenti.com/?m=Profile&func=my_profile', false, $galleta);
-	$tagged_uri = get_string_between($content, '<div class="h">Photos</div><a id="photos"></a><div class="item"><div><small><a href="', '">');
+	file_put_contents('asd.txt', $content);
+	$tagged_uri = get_string_between($content, '<div class="h">Photos</div><a id="photos"></a><div class="item"><div> <small> <a href="', '">');
 	$tagged_uri = html_entity_decode('http://m.tuenti.com/'.$tagged_uri);
-	
+
 	// 2. Accedemos al album de fotos etiquetadas
 	$content = launch_curl(urldecode($tagged_uri), false, $galleta);
 	$first_pic = get_string_between($content, '</h1><div class="item"><a class="thumb" href="', '">');
