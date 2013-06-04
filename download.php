@@ -3,7 +3,7 @@
 /*************************************************
 * -> TuentiPhotoBackup                           *
 * -> by Rubén Díaz <outime@gmail.com>            *
-* -> https://github.com/outime/TuentiPhotoBackup *
+* -> httpss://github.com/outime/TuentiPhotoBackup *
 *************************************************/
 
 set_time_limit(0);
@@ -43,15 +43,15 @@ if ($step == 1) // identificación
 	$status = array();
 	
 	// 1. Cogemos csfr y cookie inicial
-	$content = launch_curl('http://m.tuenti.com/?m=Login');
-	
+	$content = launch_curl('https://m.tuenti.com/?m=Login');
+		
 	preg_match_all( '#Set-Cookie:(.*?);#', $content, $galleta );
 	$galleta = trim(implode(';',$galleta[1])); // pid(alfanumerico); cookiename=1
 	$csfr = get_string_between($content, 'name="csrf" value="', '"/>'); // alfanum (depende de pid)
 	
 	// 2. Nos logueamos
 	$postargs = 'csrf='.$csfr.'&tuentiemailaddress='.urlencode($email).'&password='.urlencode($password).'&remember=1';
-	$content = launch_curl('http://m.tuenti.com/?m=Login&f=process_login', $postargs, $galleta.'; cookiename=1');
+	$content = launch_curl('https://m.tuenti.com/?m=Login&f=process_login', $postargs, $galleta.'; cookiename=1');
 	
 	preg_match_all( '#Set-Cookie:(.*?);#', $content, $galleta );
 	$galleta = trim(implode(';',$galleta[1]));
@@ -66,7 +66,6 @@ if ($step == 1) // identificación
 	{
 		$status['galleta'] = null;
 	}
-	
 	echo json_encode($status);
 } // fin identificación
 
@@ -75,23 +74,22 @@ if ($step == 2) // recogida de fotos
 	$status = array();
 	
 	// 1. Propio perfil para obtener url de fotos etiquetadas
-	$content = launch_curl('http://m.tuenti.com/?m=Profile&func=my_profile', false, $galleta);
+	$content = launch_curl('https://m.tuenti.com/?m=Profile&func=my_profile', false, $galleta);
 	$tagged_uri = get_string_between($content, '<div class="h">Photos</div><a id="photos"></a><div class="item"><div> <small> <a href="', '">');
-	$tagged_uri = html_entity_decode('http://m.tuenti.com/'.$tagged_uri);
-
+	#echo "Tagged_URI" . $tagged_uri;
+	#$tagged_uri = html_entity_decode('https://m.tuenti.com/'.$tagged_uri);
+	#echo "Tagged2_URI" . $tagged_uri;
 	// 2. Accedemos al album de fotos etiquetadas
 	$content = launch_curl(urldecode($tagged_uri), false, $galleta);
 	$first_pic = get_string_between($content, '</h1><div class="item"><a class="thumb" href="', '">');
-	$first_pic = html_entity_decode('http://m.tuenti.com/'.$first_pic);
-	
+	$first_pic = html_entity_decode($first_pic);
 	// 3. Vamos a la primera imagen
 	$content = launch_curl($first_pic, false, $galleta);
 	$qty = get_string_between($content, '(1 of ', ')'); // cantidad de fotos en album
 	
-	$next = html_entity_decode('http://m.tuenti.com/'.get_string_between($content, ') <a href="', '">Next')); // enlace siguiente foto
+	$next = html_entity_decode(get_string_between($content, ') <a href="', '">Next')); // enlace siguiente foto
 	
 	$first_pic_download = get_string_between($content, '"thumb fullSize"><img src="', '"'); // uri primera foto
-	
 	mkdir('./downloads/'.$_GET['email']);
 	file_put_contents('./downloads/'.$_GET['email'].'/1.jpg', file_get_contents($first_pic_download)); // descarga efectiva de la primera
 	
@@ -99,7 +97,7 @@ if ($step == 2) // recogida de fotos
 	{
 		$content = launch_curl($next, false, $galleta);
 		
-		$next = html_entity_decode('http://m.tuenti.com/'.get_string_between($content, ') <a href="', '">Next')); 
+		$next = html_entity_decode(get_string_between($content, ') <a href="', '">Next')); 
 		$download_uri = get_string_between($content, '"thumb fullSize"><img src="', '"');
 		
 		file_put_contents('./downloads/'.$email.'/'.$i.'.jpg', file_get_contents($download_uri));
