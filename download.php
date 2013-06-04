@@ -3,7 +3,7 @@
 /*************************************************
 * -> TuentiPhotoBackup                           *
 * -> by Rubén Díaz <outime@gmail.com>            *
-* -> httpss://github.com/outime/TuentiPhotoBackup *
+* -> https://github.com/outime/TuentiPhotoBackup *
 *************************************************/
 
 set_time_limit(0);
