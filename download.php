@@ -100,7 +100,7 @@ if ($step == 2) // recogida de fotos
 		$next = html_entity_decode(get_string_between($content, ') <a href="', '">Next')); 
 		$download_uri = get_string_between($content, '"thumb fullSize"><img src="', '"');
 		
-		file_put_contents('./downloads/'.$email.'/'.$i.'.jpg', file_get_contents($download_uri));
+		file_put_contents("./downloads/$email/$i.jpg", file_get_contents($download_uri));
 		file_put_contents('status.php', ($i/($qty/100))); // para la cutrebarra de progreso
 		
 		sleep(0.7); // no vaya a ser que por flood...
