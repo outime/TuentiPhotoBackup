@@ -1,7 +1,7 @@
 TuentiPhotoBackup
 =================
 
-AVISO: TPB vuelve a funcionar con la última versión de Tuenti disponible (4/6/2013).
+AVISO: 'TuentiPhotoBackup' deja de desarrollarse como tal y pasa a llamarse 'tpb'. Este repositorio *no se actualizará más*. Se ha reescrito todo el código en Python, y puede encontrarse [aquí](https://github.com/outime/tpb).
 
 TuentiPhotoBackup es un pequeño script que hice para uso personal al querer guardar todas las fotos de mi cuenta de Tuenti antes de cerrarla. 
 
